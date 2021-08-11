@@ -1,96 +1,114 @@
 {
-	 "if": {
-	    "anyOf": [
-		 {
-			"not": {
-			  "anyOf": [
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Compute/disks/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Compute/virtualMachines/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/networkInterfaces/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/networkSecurityGroups/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/privateDnsZones/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/privateDnsZones/virtualNetworkLinks/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/publicIPAddresses/*"
-				    },
-                    {
-				    "field": "type",
-				    "like": "Microsoft.Network/virtualNetworks/*"
-				    },
-                    {
-				    "field": "type",
-				    "in": ["Microsoft.Compute/disks", "Microsoft.Compute/virtualMachines", "Microsoft.Network/networkInterfaces", "Microsoft.Network/networkSecurityGroups", "Microsoft.Network/privateDnsZones", "Microsoft.Network/privateDnsZones/virtualNetworkLinks", "Microsoft.Network/publicIPAddresses", "Microsoft.Network/virtualNetworks"]
-				    }
-                ]
-			}
-		 },
-          {
-		  "allof": [
+	"if": {
+		"anyOf": [
 			{
-			  "field": "type",
-			  "equals": "Microsoft.Compute/disks"
-			},
-			{
-			  "not": {
-				"field": "Microsoft.Compute/disks/Sku.Tier",
-				"in": ["Standard"]
+				"not": {
+					"anyOf": [
+						{
+							"field": "type",
+							"like": "Microsoft.Compute/disks/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Compute/virtualMachines/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/networkInterfaces/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/networkSecurityGroups/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/privateDnsZones/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/privateDnsZones/virtualNetworkLinks/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/publicIPAddresses/*"
+						},
+						{
+							"field": "type",
+							"like": "Microsoft.Network/virtualNetworks/*"
+						},
+						{
+							"field": "type",
+							"in": [
+								"Microsoft.Compute/disks",
+								"Microsoft.Compute/virtualMachines",
+								"Microsoft.Network/networkInterfaces",
+								"Microsoft.Network/networkSecurityGroups",
+								"Microsoft.Network/privateDnsZones",
+								"Microsoft.Network/privateDnsZones/virtualNetworkLinks",
+								"Microsoft.Network/publicIPAddresses",
+								"Microsoft.Network/virtualNetworks"
+							]
+						}
+					]
 				}
-			  }
-			]
-		  },
-          {
-		  "allOf": [
-			{
-			  "field": "type",
-			  "equals": "Microsoft.Compute/virtualMachines"
 			},
 			{
-			  "not": {
-				"allOf": [
-				  {
-                    "field": "Microsoft.Compute/virtualMachines/imageOffer",
-					"in": ["Windows-10"]
-				  },
-				  {
-					"field": "Microsoft.Compute/virtualMachines/imagePublisher",
-					"in": ["MicrosoftWindowsDesktop"]
-				  },
-				  {
-					"field": "Microsoft.Compute/virtualMachines/imageSku",
-					 "in": ["20h2-pro"]
-				  },
-				  {
-					"field": "Microsoft.Compute/virtualMachines/sku.name",
-					"in": ["Standard_D2_v3"]
-				  }
+				"allof": [
+					{
+						"field": "type",
+						"equals": "Microsoft.Compute/disks"
+					},
+					{
+						"not": {
+							"field": "Microsoft.Compute/disks/Sku.Tier",
+							"in": [
+								"Standard"
+							]
+						}
+					}
 				]
-			  }
+			},
+			{
+				"allOf": [
+					{
+						"field": "type",
+						"equals": "Microsoft.Compute/virtualMachines"
+					},
+					{
+						"not": {
+							"allOf": [
+								{
+									"field": "Microsoft.Compute/virtualMachines/imageOffer",
+									"in": [
+										"Windows-10"
+									]
+								},
+								{
+									"field": "Microsoft.Compute/virtualMachines/imagePublisher",
+									"in": [
+										"MicrosoftWindowsDesktop"
+									]
+								},
+								{
+									"field": "Microsoft.Compute/virtualMachines/imageSku",
+									"in": [
+										"20h2-pro"
+									]
+								},
+								{
+									"field": "Microsoft.Compute/virtualMachines/sku.name",
+									"in": [
+										"Standard_D2_v3"
+									]
+								}
+							]
+						}
+					}
+				]
 			}
-		   ]
-		},
-
-	  ]
+		]
 	},
 	"then": {
-	  "effect": "deny"
+		"effect": "deny"
 	}
 }
