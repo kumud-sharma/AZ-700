@@ -1,6 +1,4 @@
 {
-  "mode": "All",
-  "policyRule": {
 	 "if": {
 	    "anyOf": [
 		 {
@@ -88,14 +86,11 @@
 			  }
 			}
 		   ]
-		}
+		},
 
 	  ]
 	},
 	"then": {
 	  "effect": "deny"
 	}
-  }
 }
-    
-    
