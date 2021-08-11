@@ -4,46 +4,46 @@
 		 {
 			"not": {
 			  "anyOf": [
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Compute/disks/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Compute/virtualMachines/*"
 				    },
-                    {
+                   		 {
 				    "field": "type",
 				    "like": "Microsoft.Network/networkInterfaces/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Network/networkSecurityGroups/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Network/privateDnsZones/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Network/privateDnsZones/virtualNetworkLinks/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Network/publicIPAddresses/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "like": "Microsoft.Network/virtualNetworks/*"
 				    },
-                    {
+                    		{
 				    "field": "type",
 				    "in": ["Microsoft.Compute/disks", "Microsoft.Compute/virtualMachines", "Microsoft.Network/networkInterfaces", "Microsoft.Network/networkSecurityGroups", "Microsoft.Network/privateDnsZones", "Microsoft.Network/privateDnsZones/virtualNetworkLinks", "Microsoft.Network/publicIPAddresses", "Microsoft.Network/virtualNetworks"]
 				    }
-                ]
+               			 ]
 			}
 		 },
-          {
+          	{
 		  "allof": [
 			{
 			  "field": "type",
@@ -57,7 +57,7 @@
 			  }
 			]
 		  },
-          {
+          	{
 		  "allOf": [
 			{
 			  "field": "type",
